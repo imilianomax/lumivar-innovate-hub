@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
 import confetti from "canvas-confetti";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -100,12 +101,9 @@ export const ContactForm = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors"
-            >
+            <RainbowButton onClick={(e) => handleSubmit(e as any)}>
               Send Message
-            </button>
+            </RainbowButton>
           </form>
         </motion.div>
       </div>
