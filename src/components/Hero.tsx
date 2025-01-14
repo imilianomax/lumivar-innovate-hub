@@ -11,12 +11,13 @@ export const Hero = () => {
   };
 
   return (
-    <AuroraBackground>
+    <div className="relative min-h-screen">
+      <AuroraBackground className="absolute inset-0" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative flex flex-col gap-4 items-center justify-center min-h-screen px-4 pt-16"
+        className="relative z-20 flex flex-col gap-4 items-center justify-center min-h-screen px-4 pt-16"
         id="home"
       >
         <h1 className="text-4xl md:text-6xl font-bold text-[#6366F1]">
@@ -34,13 +35,13 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 relative z-10"
+          className="mt-16 relative z-50"
         >
           <RainbowButton onClick={scrollToContact}>
             Get in Touch
           </RainbowButton>
         </motion.div>
       </motion.div>
-    </AuroraBackground>
+    </div>
   );
 };
