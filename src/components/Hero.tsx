@@ -4,8 +4,10 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export const Hero = () => {
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -14,7 +16,8 @@ export const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4"
+        className="relative flex flex-col gap-4 items-center justify-center min-h-screen px-4"
+        id="home"
       >
         <h1 className="text-4xl md:text-6xl font-bold text-[#6366F1]">
           We Build. We Innovate.

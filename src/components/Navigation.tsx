@@ -16,14 +16,23 @@ export const Navigation = () => {
 
   const handleNavClick = (url: string) => {
     const element = document.querySelector(url);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
   };
 
   const navItems = [
     { 
+      name: "Home", 
+      url: "#home", 
+      icon: Home,
+      onClick: () => handleNavClick("#home")
+    },
+    { 
       name: "What We Do", 
       url: "#what-we-do", 
-      icon: Home,
+      icon: FileText,
       onClick: () => handleNavClick("#what-we-do")
     },
     { 
@@ -48,7 +57,14 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-2xl font-bold text-primary">
+          <a 
+            href="#home" 
+            className="text-2xl font-bold text-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("#home");
+            }}
+          >
             Lumivar
           </a>
 
