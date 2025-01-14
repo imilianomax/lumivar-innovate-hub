@@ -5,7 +5,7 @@ export const Trust = () => {
   return (
     <section className="py-16 bg-white dark:bg-black" id="trust">
       <div className="container mx-auto px-4">
-        <HeroHighlight containerClassName="!h-auto py-16">
+        <HeroHighlight containerClassName="!h-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -14,13 +14,13 @@ export const Trust = () => {
           >
             Built on <Highlight>Trust and Impact</Highlight>
           </motion.h2>
+          
+          <div className="mt-10">
+            <p className="text-lg text-center text-gray-600 dark:text-gray-300">
+              We believe in the power of collaboration and integrity. Our mission is to create lasting relationships built on trust and mutual respect.
+            </p>
+          </div>
         </HeroHighlight>
-        
-        <div className="mt-10">
-          <p className="text-lg text-center text-gray-600 dark:text-gray-300">
-            We believe in the power of collaboration and integrity. Our mission is to create lasting relationships built on trust and mutual respect.
-          </p>
-        </div>
       </div>
     </section>
   );
