@@ -17,21 +17,37 @@ export const Navigation = () => {
     // Set up intersection observer for each section
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        // Filter for sections that are intersecting
+        const visibleSections = entries.filter(entry => entry.isIntersecting);
+        
+        if (visibleSections.length > 0) {
+          // Get the first visible section from top
+          const topSection = visibleSections.reduce((top, current) => {
+            const topRect = document.getElementById(top.target.id)?.getBoundingClientRect();
+            const currentRect = current.target.getBoundingClientRect();
+            
+            if (!topRect) return current;
+            return currentRect.top < topRect.top ? current : top;
+          });
+          
+          setActiveSection(topSection.target.id);
+        } else if (window.scrollY === 0) {
+          // If we're at the top of the page, set to home
+          setActiveSection("home");
+        }
       },
       {
-        rootMargin: "-50% 0px -50% 0px", // Trigger when section is in the middle of viewport
-        threshold: 0
+        rootMargin: "-45% 0px -45% 0px", // Adjusted margin to better detect sections
+        threshold: [0, 0.1, 0.5, 1] // Multiple thresholds for better detection
       }
     );
 
     // Observe all sections
     const sections = document.querySelectorAll("section[id]");
     sections.forEach((section) => observer.observe(section));
+
+    // Set initial active section to home
+    setActiveSection("home");
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
