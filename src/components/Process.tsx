@@ -20,8 +20,10 @@ const steps = [
 ];
 
 // Typing animation configuration
-const sentence = "We don't just imagine the future – we build it.";
-const words = sentence.split("");
+const sentence = "We don't just imagine the future – ";
+const boldPart = "we build it.";
+const words = [...sentence.split(""), ...boldPart.split("")];
+const boldStartIndex = sentence.length;
 
 export const Process = () => {
   return (
@@ -74,7 +76,7 @@ export const Process = () => {
                   delay: 0.8 + index * 0.03,
                   ease: "easeOut"
                 }}
-                className="inline-block"
+                className={`inline-block ${index >= boldStartIndex ? 'font-bold' : ''}`}
               >
                 {char === " " ? "\u00A0" : char}
               </motion.span>
