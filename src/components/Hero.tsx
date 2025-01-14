@@ -10,7 +10,7 @@ export const Hero = () => {
         transition={{ duration: 0.6 }}
         className="relative flex flex-col gap-4 items-center justify-center px-4"
       >
-        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-6xl font-bold text-[#6366F1]">
           We Build. We Innovate.
         </h1>
         <motion.p

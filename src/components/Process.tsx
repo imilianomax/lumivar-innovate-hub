@@ -33,7 +33,7 @@ export const Process = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="relative grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -41,15 +41,15 @@ export const Process = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative"
+              className="relative z-10"
             >
-              <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="bg-white dark:bg-zinc-900 p-6 rounded-lg shadow-lg">
                 <step.icon className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
               </div>
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/30" />
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/30 transform -translate-y-1/2 z-0" />
               )}
             </motion.div>
           ))}
