@@ -31,6 +31,11 @@ export default {
     },
     extend: {
       colors: {
+        "color-1": "hsl(var(--color-1))",
+        "color-2": "hsl(var(--color-2))",
+        "color-3": "hsl(var(--color-3))",
+        "color-4": "hsl(var(--color-4))",
+        "color-5": "hsl(var(--color-5))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -69,6 +74,7 @@ export default {
         "fade-in": "fade-in 0.5s ease-in",
         "fade-up": "fade-up 0.5s ease-out",
         "aurora": "aurora 60s linear infinite",
+        "rainbow": "rainbow var(--speed, 2s) infinite linear",
       },
       keyframes: {
         "fade-in": {
@@ -86,6 +92,10 @@ export default {
           "to": {
             backgroundPosition: "350% 50%, 350% 50%",
           },
+        },
+        "rainbow": {
+          "0%": { "background-position": "0%" },
+          "100%": { "background-position": "200%" },
         },
       },
       borderRadius: {
