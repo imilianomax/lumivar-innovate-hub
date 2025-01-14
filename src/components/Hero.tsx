@@ -12,7 +12,9 @@ export const Hero = () => {
 
   return (
     <div className="relative min-h-screen">
-      <AuroraBackground className="absolute inset-0" />
+      <AuroraBackground className="absolute inset-0">
+        <div></div>
+      </AuroraBackground>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
