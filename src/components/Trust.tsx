@@ -1,21 +1,26 @@
 import { motion } from "framer-motion";
+import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 
 export const Trust = () => {
   return (
-    <section className="h-screen flex items-center bg-white" id="trust">
-      <div className="container px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Built on Trust and Impact</h2>
-          <p className="text-lg text-gray-600">
-            With a foundation of technical expertise and strategic insight, we approach every challenge with creativity, precision, and purpose. Our mission is simple: to create products that solve real problems and deliver lasting value.
+    <section className="py-16 bg-white dark:bg-black" id="trust">
+      <div className="container mx-auto px-4">
+        <HeroHighlight containerClassName="!h-auto py-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-4xl font-bold mb-6 text-center"
+          >
+            Built on <Highlight>Trust and Impact</Highlight>
+          </motion.h2>
+        </HeroHighlight>
+        
+        <div className="mt-10">
+          <p className="text-lg text-center text-gray-600 dark:text-gray-300">
+            We believe in the power of collaboration and integrity. Our mission is to create lasting relationships built on trust and mutual respect.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
