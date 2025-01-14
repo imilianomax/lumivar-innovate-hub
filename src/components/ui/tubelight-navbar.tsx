@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { LucideIcon } from "lucide-react"
@@ -9,6 +7,7 @@ interface NavItem {
   name: string
   url: string
   icon: LucideIcon
+  onClick?: () => void
 }
 
 interface NavBarProps {
@@ -46,7 +45,11 @@ export function NavBar({ items, className }: NavBarProps) {
             <a
               key={item.name}
               href={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveTab(item.name);
+                item.onClick?.();
+              }}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",

@@ -14,10 +14,30 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (url: string) => {
+    const element = document.querySelector(url);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const navItems = [
-    { name: "What We Do", url: "#what-we-do", icon: Home },
-    { name: "Process", url: "#process", icon: FileText },
-    { name: "Contact", url: "#contact", icon: Briefcase },
+    { 
+      name: "What We Do", 
+      url: "#what-we-do", 
+      icon: Home,
+      onClick: () => handleNavClick("#what-we-do")
+    },
+    { 
+      name: "Process", 
+      url: "#process", 
+      icon: FileText,
+      onClick: () => handleNavClick("#process")
+    },
+    { 
+      name: "Contact", 
+      url: "#contact", 
+      icon: Briefcase,
+      onClick: () => handleNavClick("#contact")
+    },
   ];
 
   return (
