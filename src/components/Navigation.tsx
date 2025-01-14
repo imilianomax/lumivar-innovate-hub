@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Home, FileText, Briefcase } from "lucide-react";
-import { TubelightNavbar } from "@/components/ui/tubelight-navbar";
+import { NavBar } from "@/components/ui/tubelight-navbar";
 import LumivarLogo from "@/components/ui/LumivarLogo";
 import { MobileMenu } from "./MobileMenu";
 import { useActiveSection } from "@/hooks/use-active-section";
@@ -26,25 +26,6 @@ export const Navigation = () => {
       setIsOpen(false);
     }
   };
-
-  const navLinks = [
-    { 
-      label: "Home", 
-      href: "#home"
-    },
-    { 
-      label: "What We Do", 
-      href: "#what-we-do"
-    },
-    { 
-      label: "Process", 
-      href: "#process"
-    },
-    { 
-      label: "Contact", 
-      href: "#contact"
-    },
-  ];
 
   const navItems: NavItem[] = [
     { 
@@ -98,11 +79,7 @@ export const Navigation = () => {
           </a>
 
           <div className="hidden md:block">
-            <TubelightNavbar 
-              links={navLinks} 
-              activeSection={activeSection} 
-              className="static transform-none"
-            />
+            <NavBar items={navItems} />
           </div>
 
           <MobileMenu 
