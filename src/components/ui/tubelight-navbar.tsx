@@ -40,7 +40,7 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "relative z-50 mb-6 sm:pt-4",
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
         className,
       )}
     >
@@ -59,7 +59,7 @@ export function NavBar({ items, className }: NavBarProps) {
                 item.onClick?.();
               }}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-1.5 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",
                 isActive && "bg-muted text-primary",
               )}
