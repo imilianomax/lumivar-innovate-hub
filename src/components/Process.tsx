@@ -19,6 +19,10 @@ const steps = [
   },
 ];
 
+// Typing animation configuration
+const sentence = "We don't just imagine the future – we build it.";
+const words = sentence.split("");
+
 export const Process = () => {
   return (
     <section className="h-screen flex items-center bg-gradient-to-br from-primary/5 to-secondary/5" id="process">
@@ -52,15 +56,31 @@ export const Process = () => {
           ))}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center text-lg font-medium mt-12"
-        >
-          We don't just imagine the future – we build it.
-        </motion.p>
+        <div className="text-center mt-12 h-8 overflow-hidden">
+          <motion.p
+            initial={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-lg font-medium inline-block"
+          >
+            {words.map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.2,
+                  delay: 0.8 + index * 0.03,
+                  ease: "easeOut"
+                }}
+                className="inline-block"
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.p>
+        </div>
       </div>
     </section>
   );
