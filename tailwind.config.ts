@@ -31,6 +31,8 @@ export default {
     },
     extend: {
       colors: {
+        brand: "hsl(var(--brand))",
+        "brand-foreground": "hsl(var(--brand-foreground))",
         "color-1": "hsl(var(--color-1))",
         "color-2": "hsl(var(--color-2))",
         "color-3": "hsl(var(--color-3))",
@@ -75,6 +77,7 @@ export default {
         "fade-up": "fade-up 0.5s ease-out",
         "aurora": "aurora 60s linear infinite",
         "rainbow": "rainbow var(--speed, 2s) infinite linear",
+        'pulse-hover': 'pulse-hover 8s ease-in-out infinite',
       },
       keyframes: {
         "fade-in": {
@@ -96,6 +99,10 @@ export default {
         "rainbow": {
           "0%": { "background-position": "0%" },
           "100%": { "background-position": "200%" },
+        },
+        'pulse-hover': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-2%)' },
         },
       },
       borderRadius: {
