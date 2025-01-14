@@ -16,7 +16,7 @@ export const TubelightNavbar = ({
   return (
     <div
       className={cn(
-        "fixed left-1/2 top-4 z-50 flex -translate-x-1/2 items-center rounded-full border border-transparent bg-white/80 px-8 py-4 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] backdrop-blur-md dark:bg-gray-950/80",
+        "z-50 flex items-center rounded-full border border-transparent bg-white/80 px-8 py-4 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] backdrop-blur-md dark:bg-gray-950/80",
         className
       )}
       {...props}
