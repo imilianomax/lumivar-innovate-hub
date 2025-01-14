@@ -8,6 +8,7 @@ interface NavItem {
   url: string
   icon: LucideIcon
   onClick?: () => void
+  isActive?: boolean
 }
 
 interface NavBarProps {
@@ -16,8 +17,15 @@ interface NavBarProps {
 }
 
 export function NavBar({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name)
+  const activeItem = items.find(item => item.isActive)
+  const [activeTab, setActiveTab] = useState(activeItem?.name || items[0].name)
   const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    if (activeItem) {
+      setActiveTab(activeItem.name)
+    }
+  }, [activeItem])
 
   useEffect(() => {
     const handleResize = () => {

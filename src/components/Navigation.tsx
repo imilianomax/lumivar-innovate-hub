@@ -5,13 +5,37 @@ import { NavBar } from "@/components/ui/tubelight-navbar";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Set up intersection observer for each section
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px", // Trigger when section is in the middle of viewport
+        threshold: 0
+      }
+    );
+
+    // Observe all sections
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
 
   const handleNavClick = (url: string) => {
@@ -27,25 +51,29 @@ export const Navigation = () => {
       name: "Home", 
       url: "#home", 
       icon: Home,
-      onClick: () => handleNavClick("#home")
+      onClick: () => handleNavClick("#home"),
+      isActive: activeSection === "home"
     },
     { 
       name: "What We Do", 
       url: "#what-we-do", 
       icon: FileText,
-      onClick: () => handleNavClick("#what-we-do")
+      onClick: () => handleNavClick("#what-we-do"),
+      isActive: activeSection === "what-we-do"
     },
     { 
       name: "Process", 
       url: "#process", 
       icon: FileText,
-      onClick: () => handleNavClick("#process")
+      onClick: () => handleNavClick("#process"),
+      isActive: activeSection === "process"
     },
     { 
       name: "Contact", 
       url: "#contact", 
       icon: Briefcase,
-      onClick: () => handleNavClick("#contact")
+      onClick: () => handleNavClick("#contact"),
+      isActive: activeSection === "contact"
     },
   ];
 
