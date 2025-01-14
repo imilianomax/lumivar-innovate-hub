@@ -3,9 +3,9 @@ import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 
 export const Trust = () => {
   return (
-    <section className="py-16 bg-white dark:bg-black" id="trust">
-      <div className="container mx-auto px-4">
-        <HeroHighlight containerClassName="!h-auto">
+    <section className="bg-white dark:bg-black" id="trust">
+      <HeroHighlight containerClassName="!h-auto py-16">
+        <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -20,8 +20,8 @@ export const Trust = () => {
               We believe in the power of collaboration and integrity. Our mission is to create lasting relationships built on trust and mutual respect.
             </p>
           </div>
-        </HeroHighlight>
-      </div>
+        </div>
+      </HeroHighlight>
     </section>
   );
 };
