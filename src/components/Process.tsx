@@ -48,9 +48,6 @@ export const Process = () => {
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
               </div>
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/30 transform -translate-y-1/2 z-0" />
-              )}
             </motion.div>
           ))}
         </div>
