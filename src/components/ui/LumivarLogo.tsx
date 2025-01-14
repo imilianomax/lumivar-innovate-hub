@@ -1,9 +1,9 @@
 const LumivarLogo = () => {
   return (
     <img
-      src="/lovable-uploads/97d4b7c0-99b4-492f-adbc-85a40662c753.png"
+      src="/lovable-uploads/89c9b58e-4971-4d31-b524-9374ff19cf29.png"
       alt="Lumivar Logo"
-      className="w-6 h-6"
+      className="w-8 h-8"
     />
   );
 };
