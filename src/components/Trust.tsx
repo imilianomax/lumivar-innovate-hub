@@ -9,13 +9,13 @@ export const Trust = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold mb-6 text-center"
+          className="text-2xl md:text-4xl font-bold mb-6 text-center px-4"
         >
           Built on <Highlight>Trust and Impact</Highlight>
         </motion.h2>
         
         <div className="mt-10">
-          <p className="text-lg text-center text-gray-600 dark:text-gray-300">
+          <p className="text-base md:text-lg text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
             We believe in the power of collaboration and integrity. Our mission is to create lasting relationships built on trust and mutual respect.
           </p>
         </div>

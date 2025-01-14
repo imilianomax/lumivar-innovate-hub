@@ -19,17 +19,17 @@ export const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative z-20 flex flex-col gap-4 items-center justify-center min-h-screen px-4 pt-16"
+        className="relative z-20 flex flex-col gap-4 items-center justify-center min-h-screen px-4 pt-16 text-center"
         id="home"
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-[#6366F1]">
-          We Build. We Innovate.
+        <h1 className="text-4xl md:text-6xl font-bold text-[#6366F1] px-4 md:px-0 leading-tight">
+          We Build.<br className="md:hidden" /> We Innovate.
         </h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-center"
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-center px-4 md:px-6"
         >
           At our core, we are builders. We turn bold ideas into transformative solutions through cutting-edge technology, rigorous execution, and a relentless focus on impact.
         </motion.p>
@@ -37,7 +37,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 relative z-50"
+          className="mt-8 md:mt-16 relative z-50"
         >
           <RainbowButton onClick={scrollToContact}>
             Get in Touch
