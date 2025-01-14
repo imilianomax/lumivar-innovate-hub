@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, FileText, Briefcase, Lightbulb } from "lucide-react";
+import { Menu, X, Home, FileText, Briefcase } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
+import LumivarLogo from "@/components/ui/LumivarLogo";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,7 +94,7 @@ export const Navigation = () => {
               handleNavClick("#home");
             }}
           >
-            <Lightbulb className="w-6 h-6 text-primary" />
+            <LumivarLogo />
             Lumivar
           </a>
 
