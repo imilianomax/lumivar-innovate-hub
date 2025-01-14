@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, FileText, Briefcase } from "lucide-react";
+import { NavBar } from "@/components/ui/tubelight-navbar";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,10 +14,10 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: "#what-we-do", label: "What We Do" },
-    { href: "#process", label: "Process" },
-    { href: "#contact", label: "Contact" },
+  const navItems = [
+    { name: "What We Do", url: "#what-we-do", icon: Home },
+    { name: "Process", url: "#process", icon: FileText },
+    { name: "Contact", url: "#contact", icon: Briefcase },
   ];
 
   return (
@@ -32,16 +33,8 @@ export const Navigation = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-gray-600 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="hidden md:block">
+            <NavBar items={navItems} />
           </div>
 
           {/* Mobile Navigation Button */}
@@ -56,18 +49,7 @@ export const Navigation = () => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="block px-3 py-2 text-gray-600 hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+            <NavBar items={navItems} className="static transform-none mb-0 mt-4" />
           </div>
         )}
       </div>
