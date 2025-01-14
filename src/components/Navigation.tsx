@@ -1,58 +1,22 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, FileText, Briefcase } from "lucide-react";
+import { Home, FileText, Briefcase } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import LumivarLogo from "@/components/ui/LumivarLogo";
+import { MobileMenu } from "./MobileMenu";
+import { useActiveSection } from "@/hooks/use-active-section";
+import type { NavItem } from "@/types/navigation";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const activeSection = useActiveSection();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-
-    // Set up intersection observer for each section
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Filter for sections that are intersecting
-        const visibleSections = entries.filter(entry => entry.isIntersecting);
-        
-        if (visibleSections.length > 0) {
-          // Get the first visible section from top
-          const topSection = visibleSections.reduce((top, current) => {
-            const topRect = document.getElementById(top.target.id)?.getBoundingClientRect();
-            const currentRect = current.target.getBoundingClientRect();
-            
-            if (!topRect) return current;
-            return currentRect.top < topRect.top ? current : top;
-          });
-          
-          setActiveSection(topSection.target.id);
-        } else if (window.scrollY === 0) {
-          // If we're at the top of the page, set to home
-          setActiveSection("home");
-        }
-      },
-      {
-        rootMargin: "-45% 0px -45% 0px", // Adjusted margin to better detect sections
-        threshold: [0, 0.1, 0.5, 1] // Multiple thresholds for better detection
-      }
-    );
-
-    // Observe all sections
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
-
-    // Set initial active section to home
-    setActiveSection("home");
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      sections.forEach((section) => observer.unobserve(section));
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (url: string) => {
@@ -63,7 +27,7 @@ export const Navigation = () => {
     }
   };
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { 
       name: "Home", 
       url: "#home", 
@@ -114,26 +78,16 @@ export const Navigation = () => {
             Lumivar
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <NavBar items={navItems} />
           </div>
 
-          {/* Mobile Navigation Button */}
-          <button
-            className="md:hidden text-gray-600"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </button>
+          <MobileMenu 
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            navItems={navItems}
+          />
         </div>
-
-        {/* Mobile Navigation Menu */}
-        {isOpen && (
-          <div className="md:hidden">
-            <NavBar items={navItems} className="static transform-none mb-0 mt-4" />
-          </div>
-        )}
       </div>
     </nav>
   );
