@@ -5,7 +5,6 @@ import { Process } from "@/components/Process";
 import { Trust } from "@/components/Trust";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
-import { OrbEffect } from "@/components/ui/orb-effect";
 
 const Index = () => {
   return (
@@ -15,12 +14,7 @@ const Index = () => {
       <WhatWeDo />
       <Process />
       <Trust />
-      <div className="relative">
-        <ContactForm />
-        <div className="absolute inset-0 top-[400px] pointer-events-none">
-          <OrbEffect />
-        </div>
-      </div>
+      <ContactForm />
       <Footer />
     </div>
   );
