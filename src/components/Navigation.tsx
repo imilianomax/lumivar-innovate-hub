@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, FileText, Briefcase } from "lucide-react";
+import { Menu, X, Home, FileText, Briefcase, Lighthouse } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 
 export const Navigation = () => {
@@ -87,12 +87,13 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <a 
             href="#home" 
-            className="text-2xl font-bold text-primary"
+            className="flex items-center gap-2 text-2xl font-bold text-primary"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick("#home");
             }}
           >
+            <Lighthouse className="w-6 h-6 text-primary" />
             Lumivar
           </a>
 
