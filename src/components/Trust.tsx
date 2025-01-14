@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const Trust = () => {
   return (
-    <section className="py-20 bg-white" id="trust">
+    <section className="h-screen flex items-center bg-white" id="trust">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

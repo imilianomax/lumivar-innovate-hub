@@ -21,7 +21,7 @@ const features = [
 
 export const WhatWeDo = () => {
   return (
-    <section className="py-20 bg-white" id="what-we-do">
+    <section className="h-screen flex items-center bg-white" id="what-we-do">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

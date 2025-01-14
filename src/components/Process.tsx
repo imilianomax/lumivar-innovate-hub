@@ -21,7 +21,7 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5" id="process">
+    <section className="h-screen flex items-center bg-gradient-to-br from-primary/5 to-secondary/5" id="process">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
