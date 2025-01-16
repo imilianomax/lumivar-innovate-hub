@@ -39,7 +39,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} Lumivar. All rights reserved.
           </p>
           <p className="text-center text-sm text-muted-foreground mt-2">
-            Made with ❤️ in Berlin
+            Made with <span className="text-purple-500">❤️</span> in Berlin
           </p>
         </div>
       </div>
